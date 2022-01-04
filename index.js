@@ -5,6 +5,7 @@ for (var i=0;i<numberOfButtons;i++){
         
         var button = this.innerHTML;
         makeSound(button);
+        buttonAnimation(button);
 
       
         
@@ -16,6 +17,7 @@ for (var i=0;i<numberOfButtons;i++){
 
 document.addEventListener("keydown", function(event){
     makeSound(event.key);
+    buttonAnimation(event.key);
 
 });
 
@@ -62,5 +64,18 @@ function makeSound(key){
             console.log(button)
         
     }
+
+}
+
+function buttonAnimation(currentkey){
+
+    var activeButton = document.querySelector("." + currentkey);
+
+    activeButton.classList.add("pressed");
+
+    setTimeout(function(){
+        activeButton.classList.remove("pressed");
+    },100);
+
 
 }
